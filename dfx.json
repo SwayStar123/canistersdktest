@@ -1,0 +1,29 @@
+{
+  "canisters": {
+    "canistersdktest_backend": {
+      "candid": "src/canistersdktest_backend/canistersdktest_backend.did",
+      "package": "canistersdktest_backend",
+      "type": "rust"
+    },
+    "canistersdktest_frontend": {
+      "dependencies": [
+        "canistersdktest_backend"
+      ],
+      "frontend": {
+        "entrypoint": "src/canistersdktest_frontend/src/index.html"
+      },
+      "source": [
+        "src/canistersdktest_frontend/assets",
+        "dist/canistersdktest_frontend/"
+      ],
+      "type": "assets"
+    }
+  },
+  "defaults": {
+    "build": {
+      "args": "",
+      "packtool": ""
+    }
+  },
+  "version": 1
+}
