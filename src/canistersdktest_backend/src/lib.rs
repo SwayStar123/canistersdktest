@@ -1,15 +1,23 @@
 use std::cell::RefCell;
 use std::rc::Rc;
 
-use canister_sdk::{
-    ic_exports::ic_cdk::export::candid::{CandidType, Deserialize, Principal},
-    ic_storage::{IcStorage, stable::Versioned},
-    ic_canister::{generate_idl, update, Canister, MethodType, PreUpdate},
+use ic_canister::{
+    generate_exports, generate_idl, query, state_getter, update, Idl, MethodType, Canister, PreUpdate
 };
+use ic_storage::{IcStorage, stable::Versioned};
+use ic_exports::ic_cdk::export::candid::{CandidType, Deserialize, Principal};
 
 #[derive(Default, CandidType, Deserialize, IcStorage)]
 pub struct MyCanisterState {
     counter: u64,
+}
+
+impl Versioned for MyCanisterState {
+    type Previous = ();
+
+    fn upgrade((): ()) -> Self {
+        Self::default()
+    }
 }
 
 #[derive(Clone, Canister)]

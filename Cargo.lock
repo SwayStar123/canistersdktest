@@ -548,23 +548,14 @@ dependencies = [
 ]
 
 [[package]]
-name = "canister-sdk"
-version = "0.3.12"
-source = "git+https://github.com/infinity-swap/canister-sdk#579ff9d166a0654099f21806f236ad049fd5c4ad"
-dependencies = [
- "ic-canister",
- "ic-exports",
- "ic-helpers",
- "ic-metrics",
- "ic-storage",
-]
-
-[[package]]
 name = "canistersdktest_backend"
 version = "0.1.0"
 dependencies = [
  "candid",
- "canister-sdk",
+ "ic-canister",
+ "ic-exports",
+ "ic-helpers",
+ "ic-storage",
  "serde",
 ]
 
@@ -1849,18 +1840,6 @@ dependencies = [
  "ic-utils",
  "serde",
  "serde_bytes",
-]
-
-[[package]]
-name = "ic-metrics"
-version = "0.1.0"
-source = "git+https://github.com/infinity-swap/canister-sdk#579ff9d166a0654099f21806f236ad049fd5c4ad"
-dependencies = [
- "candid",
- "ic-canister",
- "ic-exports",
- "ic-storage",
- "serde",
 ]
 
 [[package]]
