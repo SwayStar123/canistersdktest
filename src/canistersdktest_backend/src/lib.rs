@@ -21,7 +21,7 @@ impl Versioned for MyCanisterState {
 }
 
 #[derive(Clone, Canister)]
-struct MyCanister {
+pub struct MyCanister {
     #[id]
     principal: Principal,
 
@@ -38,6 +38,10 @@ impl MyCanister {
     #[update]
     fn add(&self, value: u64) {
         self.state.borrow_mut().counter += value;
+    }
+
+    pub fn idl() -> Idl {
+        generate_idl!()
     }
 }
 
